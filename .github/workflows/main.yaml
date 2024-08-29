@@ -8,6 +8,7 @@ on:
 
 jobs:
   print_source_branch_name:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
 
     steps:
@@ -16,3 +17,14 @@ jobs:
 
       - name: Get Source Branch name
         run: echo "Source Branch Name is - ${{ github.head_ref }}"
+
+  print_branch_name:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get Branch name
+        run: echo "Branch Name is - ${{ github.ref_name }}"
