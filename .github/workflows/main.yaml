@@ -19,7 +19,7 @@ jobs:
         run: echo "Source Branch Name is - ${{ github.head_ref }}"
 
   print_branch_name:
-    if: github.event_name == 'pull_request'
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
 
     steps:
