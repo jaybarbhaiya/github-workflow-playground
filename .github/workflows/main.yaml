@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Get Source Branch name
-        run: echo "Source Branch Name is - ${{ github.head_ref }}"
+        run: echo "✅ Source Branch Name is - ${{ github.head_ref }}"
 
   print_branch_name:
     if: github.event_name != 'pull_request'
@@ -27,4 +27,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Get Branch name
-        run: echo "Branch Name is - ${{ github.ref_name }}"
+        run: echo "✅ Branch Name is - ${{ github.ref_name }}"
