@@ -33,6 +33,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+        
       - uses: ./.github/workflows/test-action.yaml@conditional-parameters-test
         with:
           branch: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
