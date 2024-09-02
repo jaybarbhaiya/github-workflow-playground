@@ -33,6 +33,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ./test-action
+      - uses: ./test-action.yaml@test-action
         with:
           branch: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
