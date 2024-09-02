@@ -28,3 +28,10 @@ jobs:
 
       - name: Get Branch name
         run: echo "✅ Branch Name is - ${{ github.ref_name }}"
+
+  conditional_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+      - run: echo "${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}"
