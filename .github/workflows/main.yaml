@@ -28,3 +28,11 @@ jobs:
 
       - name: Get Branch name
         run: echo "✅ Branch Name is - ${{ github.ref_name }}"
+
+  test_action:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: ./test-action
+        with:
+          branch: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}

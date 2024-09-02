@@ -1,0 +1,15 @@
+name: Test Action
+
+on:
+  workflow_call:
+    inputs:
+      branch:
+        description: 'Branch to test'
+        required: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "Testing branch ${{ inputs.branch }}"
