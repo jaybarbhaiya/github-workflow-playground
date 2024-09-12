@@ -35,3 +35,9 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v4
       - run: echo "${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}"
+
+  print_org_name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        run: echo ${{ github.repository_owner }}
