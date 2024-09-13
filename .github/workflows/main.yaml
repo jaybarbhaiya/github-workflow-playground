@@ -51,6 +51,6 @@ jobs:
       with_runner: true
 
   hello_without_runner:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, ubuntu-latest]
     steps:
       - uses: ./.github/workflows/hello.yaml
