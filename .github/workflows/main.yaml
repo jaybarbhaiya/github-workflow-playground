@@ -44,3 +44,14 @@ jobs:
         
       - name: Print Org name
         run: echo ${{ github.repository_owner }}
+
+  hello_with_runner:
+    steps:
+      uses: ./hello.yaml
+      with:
+        with_runner: true
+
+  hello_without_runner:
+    runs-on: ubuntu-latest
+    steps:
+      uses: ./hello.yaml
