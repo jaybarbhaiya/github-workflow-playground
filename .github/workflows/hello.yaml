@@ -1,24 +1,16 @@
 name: hello
-
-inputs:
-  with_runner:
-    required: false
-    description: Whether to use a runner
-    default: false
-    type: boolean
+on:
+  workflow_call:
+    inputs:
+      with_runner:
+        required: false
+        description: Whether to use a runner
+        default: false
+        type: boolean
 
 jobs:
-  say_hello_with_runner:
-    if: ${{ inputs.with_runner == true }}
-    runs-on: ubuntu-latest
+  say_hello:
+    runs-on: ${{ inputs.with_runner && 'ubuntu-latest' || 'self-hosted' }}
     steps:
-      - name: Say Hello with runner
-        run: echo "Hello WITH runner"
-
-  say_hello_without_runner:
-    if: ${{ !inputs.with_runner }}
-    runs:
-      using: "composite"
-      steps:
-        - name: Say Hello without runner
-          run: echo "Hello WITHOUT runner"
+      - name: Say Hello
+        run: echo "${{ inputs.with_runner && 'Hello WITH runner' || 'Hello WITHOUT runner' }}"
