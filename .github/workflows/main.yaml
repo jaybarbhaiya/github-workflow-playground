@@ -52,4 +52,5 @@ jobs:
 
   hello_without_runner:
     runs-on: ubuntu-latest
-    uses: ./.github/workflows/hello.yaml
+    steps:
+      uses: ./.github/workflows/hello.yaml
