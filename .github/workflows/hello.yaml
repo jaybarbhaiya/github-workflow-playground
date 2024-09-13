@@ -12,5 +12,6 @@ jobs:
   say_hello:
     runs-on: ${{ inputs.with_runner && 'ubuntu-latest' || 'self-hosted' }}
     steps:
+      - uses: actions/checkout@v4
       - name: Say Hello
         run: echo "${{ inputs.with_runner && 'Hello WITH runner' || 'Hello WITHOUT runner' }}"
