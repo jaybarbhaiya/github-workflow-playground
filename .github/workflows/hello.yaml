@@ -1,12 +1,11 @@
 name: hello
-on:
-  workflow_call:
-    inputs:
-      with_runner:
-        required: false
-        description: Whether to use a runner
-        default: false
-        type: boolean
+
+inputs:
+  with_runner:
+    required: false
+    description: Whether to use a runner
+    default: false
+    type: boolean
 
 jobs:
   say_hello_with_runner:
