@@ -19,6 +19,7 @@ jobs:
   say_hello_without_runner:
     if: ${{ !inputs.with_runner }}
     runs:
+      using: "composite"
       steps:
         - name: Say Hello without runner
           run: echo "Hello WITHOUT runner"
