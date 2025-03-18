@@ -41,7 +41,7 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
-        
+
       - name: Print Org name
         run: echo ${{ github.repository_owner }}
 
@@ -54,3 +54,15 @@ jobs:
     runs-on: [self-hosted, ubuntu-latest]
     steps:
       - uses: ./.github/workflows/hello.yaml
+
+  test_data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: printing ref
+        run: echo "${{ github.ref }}"
+
+      - name: printing date now
+        run: echo "${{ github.event.head_commit.timestamp }}"
