@@ -64,6 +64,8 @@ jobs:
       - name: printing ref
         run: echo "${{ github.ref }}"
 
-      - name: Print current date and time
-        run: date
+      - name: Set current date and time
+        run: echo "CURRENT_DATETIME=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_ENV
 
+      - name: Print current date and time
+        run: echo "${{ env.CURRENT_DATETIME }}"
