@@ -50,11 +50,11 @@ jobs:
     with:
       with_runner: true
 
-  hello_without_runner:
-    runs-on: [self-hosted, ubuntu-latest]
-    steps:
-      - uses: ./.github/workflows/hello.yaml
-
+  # hello_without_runner:
+  #   runs-on: [self-hosted, ubuntu-latest]
+  #   steps:
+  #     - uses: ./.github/workflows/hello.yaml
+  #
   test_data:
     runs-on: ubuntu-latest
     steps:
@@ -65,4 +65,7 @@ jobs:
         run: echo "${{ github.ref }}"
 
       - name: printing date now
-        run: echo "${{ github.event.head_commit.timestamp }}"
+        run: |
+          echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+          echo $NOW
+
